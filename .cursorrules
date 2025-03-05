@@ -1,0 +1,169 @@
+# .cursorrules - Development Assistant Guidelines
+
+## Instructions
+
+During your interaction with the user, if you find anything reusable (e.g. version of a library, model name), especially about a fix to a mistake you made or a correction you received, you should take note in the `Lessons` section so you will not make the same mistake again.
+
+Use this file as a Scratchpad to organize your thoughts. When you receive a new task:
+1. Review the Scratchpad content
+2. Clear old different tasks if necessary
+3. Explain the new task
+4. Plan the steps needed using todo markers:
+   [X] Completed task
+   [ ] Pending task
+
+Update task progress in the Scratchpad when completing subtasks. Reflect and plan after reaching milestones to maintain both the big picture and detailed progress.
+
+## Tools
+
+Note: All tools are in Python. For batch processing, consult the Python files and write custom scripts as needed.
+
+### Screenshot Verification
+
+Capture and verify webpage screenshots using LLMs:
+
+1. Screenshot Capture:
+```bash
+venv/bin/python tools/screenshot_utils.py URL [--output OUTPUT] [--width WIDTH] [--height HEIGHT]
+```
+
+2. LLM Verification with Images:
+```bash
+venv/bin/python tools/llm_api.py --prompt "Your verification question" --provider {openai|anthropic} --image path/to/screenshot.png
+```
+
+Example workflow:
+```python
+from screenshot_utils import take_screenshot_sync
+from llm_api import query_llm
+
+screenshot_path = take_screenshot_sync('https://example.com', 'screenshot.png')
+
+response = query_llm(
+    "What is the background color and title of this webpage?",
+    provider="openai",  # or "anthropic"
+    image_path=screenshot_path
+)
+print(response)
+```
+
+### LLM Integration
+
+Available through command line:
+```bash
+venv/bin/python ./tools/llm_api.py --prompt "Your question" --provider "anthropic"
+```
+
+Supported providers:
+- OpenAI (default, model: gpt-4o)
+- Azure OpenAI (model: configured via AZURE_OPENAI_MODEL_DEPLOYMENT)
+- DeepSeek (model: deepseek-chat)
+- Anthropic (model: claude-3-sonnet-20240229)
+- Gemini (model: gemini-pro)
+- Local LLM (model: Qwen/Qwen2.5-32B-Instruct-AWQ)
+
+For complex integrations, refer to `tools/llm_api.py`.
+
+### Web Tools
+
+Web Scraper:
+```bash
+venv/bin/python ./tools/web_scraper.py --max-concurrent 3 URL1 URL2 URL3
+```
+
+Search Engine:
+```bash
+venv/bin/python ./tools/search_engine.py "your search keywords"
+```
+
+Output format:
+```
+URL: https://example.com
+Title: Search result title
+Snippet: Search result snippet
+```
+
+# Lessons
+
+## User Specified Lessons
+- Use Python venv in ./venv
+- Include debugging info in program output
+- Read files before editing
+- For multiline git commits, use `git commit -F <filename>`
+- Include "[Cursor] " in commit messages and PR titles
+
+## Technical Lessons
+- Handle different character encodings (UTF-8) for international queries
+- Add debug information to stderr while keeping stdout clean
+- Use 'seaborn-v0_8' instead of 'seaborn' for matplotlib styling
+- Use 'gpt-4o' as OpenAI's GPT-4 vision model name
+- For website images, use correct relative paths
+- When using Jest, check suite-level setup code for failures
+
+## Technical Stack
+
+### Frontend Technologies
+
+#### Core Framework
+- **Next.js 14.x**
+  - App Router for improved routing and layouts
+  - React Server Components for optimal performance
+  - Server Actions for form handling
+  - Streaming for improved loading states
+  - API Routes for backend functionality
+
+#### UI & Styling
+- **Tailwind CSS 3.x**
+  - JIT compiler for optimized production builds
+  - Custom theme configuration for branding
+  - Dark mode support
+  - RTL support for Arabic
+- **shadcn/ui**
+  - Pre-built accessible components
+  - Tailwind CSS integration
+  - Customizable theming
+- **Lucide Icons**
+  - Consistent icon system
+  - SVG-based for scalability
+
+### Backend Technologies
+
+#### Database & ORM
+- **Supabase**
+  - PostgreSQL database
+  - Real-time subscriptions
+  - Row Level Security (RLS)
+  - Built-in authentication
+  - Storage for files
+  - Edge functions
+
+#### Authentication
+- **NextAuth.js**
+  - OAuth providers (Google, GitHub)
+  - JWT session handling
+  - Role-based access control
+  - Multi-factor authentication
+
+## Additional Notes
+- Prioritize **clean, modular, and reusable** code.
+- Ensure **modern UI/UX design** with accessibility best practices.
+- Provide **clear documentation** for all components and integrations.
+
+---
+### By following these rules, we ensure high-quality, scalable, and maintainable development for SentWatch. 🚀
+
+# Scratchpad
+[Current task and progress notes go here]
+
+Current Task:
+[ ] Task description
+[ ] Subtask 1
+[ ] Subtask 2
+
+Progress Notes:
+- Implementation status
+- Upcoming milestones
+- Issues to address
+
+---
+Remember to update this file with new lessons learned and keep the Scratchpad current with ongoing tasks.
