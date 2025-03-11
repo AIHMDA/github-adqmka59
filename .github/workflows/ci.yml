@@ -30,9 +30,17 @@ jobs:
     - name: Build project
       run: npm run build
 
-    - name: Deploy to Vercel
-      uses: AmruthPillai/vercel-action@v20
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+  name: 'My Workflow'
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    name: 'Deploy to Netlify'
+    steps:
+      - uses: jsmrcaga/action-netlify-deploy@v2.0.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secretNETLIFY_AUTH_TOKE_SECRET }}
+          NETLIFY_DEPLOY_TO_PROD: true
