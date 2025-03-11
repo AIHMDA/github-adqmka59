@@ -27,14 +27,11 @@ jobs:
     - name: Run tests
       run: npm test
 
-    - name: Build project
-      run: npm run build
-
-  name: 'My Workflow'
-
+    - name: Build proj
 on:
   release:
     types: [published]
+    name: My Workflow
 
 jobs:
   deploy:
