@@ -50,4 +50,23 @@ SentWatch er en intelligent sikkerhedsvagtstyringsplatform, der automatiserer pl
 |---|---|---|
 | Core funktionalitet | ✅ Færdig | Marts 2025 |
 | Stripe-integration | 🔄 I gang | April 2025 |
-| Mobile app MVP | ⏳ Planlagt | Maj 2025 |
+| Mobile app MVP | ⏳ Planlagt | Maj 2025
+
+## Setup Instructions
+
+1. **Clone the repository**: `git clone https://github.com/AIHMDA/github-adqmka59.git`
+2. **Navigate to the project directory**: `cd github-adqmka59`
+3. **Install dependencies**: `npm install`
+4. **Create a `.env` file**: Use the `.env.example` as a template and add the necessary environment variables.
+5. **Start the development server**: `npm run dev`
+
+## Usage Guidelines
+
+Once the development server is running, you can access the application at `http://localhost:3000`. The following features are available:
+
+- **Authentication**: Register and log in to access the platform.
+- **User Dashboard**: View and manage your account details.
+- **Real-time Updates**: Receive real-time updates on platform activities.
+- **Reports**: Generate and view reports based on your data.
+
+|
