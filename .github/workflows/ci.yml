@@ -27,7 +27,12 @@ jobs:
     - name: Run tests
       run: npm test
      - name: Deploy to Netlify
-                                                   runp    x netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID
+                                                     run
+                              - name: Rollback on Failure
+                     if: failure()
+                      run: |
+                        echo "Rolling back to previous version..."
+                        # Add rollback commands herep    x netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID
 
 
     - name: Build proj
