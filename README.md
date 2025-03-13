@@ -62,6 +62,7 @@ SentWatch er en intelligent sikkerhedsvagtstyringsplatform, der automatiserer pl
 
 ## Usage Guidelines
 
+This is a test change.
 Once the development server is running, you can access the application at `http://localhost:3000`. The following features are available:
 
 - **Authentication**: Register and log in to access the platform.
