@@ -59,6 +59,17 @@ SentWatch er en intelligent sikkerhedsvagtstyringsplatform, der automatiserer pl
 3. **Install dependencies**: `npm install`
 4. **Create a `.env` file**: Use the `.env.example` as a template and add the necessary environment variables.
 5. **Start the development server**: `npm run dev`
+6. 
+6. **Prerequisites**: Ensure you have Node.js and npm installed.
+7. **Troubleshooting**: If you encounter issues, check the logs for error messages and consult the documentation.
+
+## Deployment Instructions
+
+1. **Netlify Account**: Create a Netlify account if you don't have one.
+2. **Connect Repository**: Link the GitHub repository to Netlify.
+3. **Configure Build Settings**: Set the build command to `npm run build` and the publish directory to `build`.
+4. **Deploy**: Deploy the application and monitor the deployment process.
+
 
 ## Usage Guidelines
 
@@ -71,3 +82,16 @@ Once the development server is running, you can access the application at `http:
 - **Reports**: Generate and view reports based on your data.
 
 |
+## Contributing Guidelines
+
+We welcome contributions from the community. Please follow these steps:
+
+1. **Fork the repository**: Create a copy of the repository in your GitHub account.
+2. **Create a branch**: Use `feature/`, `bugfix/`, or `hotfix/` prefixes for branch names.
+3. **Make changes**: Implement your changes and commit them with descriptive messages.
+4. **Submit a pull request**: Open a pull request to the main repository for review.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
